@@ -94,6 +94,7 @@ t_file	*ft_file_new(void);
 
 // Parsing
 
+int		ft_check_map(char *line);
 int		ft_check_scene(t_file *file);
 int		ft_check_color(t_color *color);
 int		ft_handle_scene(t_file *file, char *line);

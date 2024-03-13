@@ -1,4 +1,3 @@
-NO ./filetest/correct.cub
 SO ./filetest/correct.cub
 WE ./filetest/correct.cub
 EA ./filetest/correct.cub

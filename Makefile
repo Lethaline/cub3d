@@ -57,6 +57,7 @@ SRC = \
 	  new/ft_color_new.c \
 	  new/ft_cub_new.c \
 	  new/ft_file_new.c \
+	  parsing/ft_check_map.c \
 	  parsing/ft_check_scene.c \
 	  parsing/ft_handle_scene.c \
 	  parsing/ft_parsing.c \

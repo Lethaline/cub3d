@@ -19,12 +19,22 @@ static int	ft_handle_error(t_cub *cub, char *line, int error)
 	return (error);
 }
 
+static int	ft_handle_scene_lines(t_cub *cub, char *line)
+
+static int	ft_handle_map_lines(t_cub *cub, char *line)
+{
+	if (line[0] == '\n' && map == 1)
+		return (ft_print_error("Error\nNew line not allowed in map", FAIL));
+	return (0);
+}
+
 int	ft_parsing(t_cub *cub)
 {
-	int		fd;
 	char	*line;
 	int		result;
+	int		map;
 
+	map = 0;
 	while (1)
 	{
 		line = get_next_line(cub->input_fd);
@@ -32,16 +42,18 @@ int	ft_parsing(t_cub *cub)
 			break ;
 		if (line[0] != '\n')
 		{
-			if (ft_check_scene(cub->file) == FALSE)
+			if (ft_check_scene(cub->file) && ft_check_map(line))
+				map = 1;
+			if (!ft_check_scene(cub->file) && !ft_check_map(line))
 				result = ft_handle_scene(cub->file, line);
-			if (ft_check_scene(cub->file) == TRUE)
-				printf("map");
+			if (ft_check_map(line) && ft_check_scene(cub->file))
+				printf("map"); // Je travaille ici !
+			if (result == FAIL)
+				return (ft_handle_error(cub, line, 1));
 		}
-		if (result == FAIL)
-			return (ft_handle_error(cub, line, 1));
 		ft_free_ptr(line);
 	}
 	ft_debug_cub(cub);
-	close(fd);
+	close(cub->input_fd);
 	return (SUCCESS);
 }

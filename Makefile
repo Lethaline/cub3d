@@ -6,7 +6,7 @@
 #    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/13 15:53:24 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/03/13 16:03:08 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,31 @@ MLXDIR = $(OSDIR)
 # Sources
 
 INC = \
+	  cub3d.h \
 
 SRC = \
+	  main.c \
+	  checks/ft_checks.c \
+	  free/ft_free_ptr.c \
+	  free/ft_free_tab.c \
+	  init/ft_init_color.c \
+	  init/ft_init_cub.c \
+	  init/ft_init_file.c \
+	  parsing/ft_check_scene.c \
+	  parsing/ft_handle_scene.c \
+	  parsing/ft_parsing.c \
+	  utils/ft_atoi.c \
+	  utils/ft_bzero.c \
+	  utils/ft_calloc.c \
+	  utils/ft_has_delimitor.c \
+	  utils/ft_memset.c \
+	  utils/ft_split.c \
+	  utils/ft_strcpy.c \
+	  utils/ft_strjoin.c \
+	  utils/ft_strlen.c \
+	  utils/ft_strncmp.c \
+	  utils/ft_tablen.c \
+	  utils/get_next_line.c \
 
 # **************************************************************************** #
 

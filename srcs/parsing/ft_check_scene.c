@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-static int	ft_check_color(t_color *color)
+int	ft_check_color(t_color *color)
 {
 	if (color->red == -1 || color->green == -1 || color->blue == -1)
 		return (FALSE);
@@ -21,8 +21,8 @@ static int	ft_check_color(t_color *color)
 
 int	ft_check_scene(t_file *file)
 {
-	if (file->north == -1 || file->south == -1 || file->east == -1
-		|| file->west == -1)
+	if (file->north == NULL || file->south == NULL || file->east == NULL
+		|| file->west == NULL)
 		return (FALSE);
 	if (!ft_check_color(file->floor) || !ft_check_color(file->cell))
 		return (FALSE);

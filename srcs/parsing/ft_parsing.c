@@ -12,29 +12,36 @@
 
 #include "../../includes/cub3d.h"
 
-int	ft_parsing(t_cub *cub, char *filename)
+static int	ft_handle_error(t_cub *cub, char *line, int error)
+{
+	ft_free_cub(cub);
+	ft_free_ptr(line);
+	return (error);
+}
+
+int	ft_parsing(t_cub *cub)
 {
 	int		fd;
 	char	*line;
-	int		scene_description;
+	int		result;
 
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		return (FAIL);
-	scene_description = FALSE;
 	while (1)
 	{
-		scene_description = ft_check_scene(cub->file);
-		printf("%d\n", scene_description);
-		line = get_next_line(fd);
-		if (line == NULL)
+		line = get_next_line(cub->input_fd);
+		if (!line || line[0] == '\0')
 			break ;
-		if (line[0] != '\n' && scene_description == FALSE)
-			ft_handle_scene(cub->file, line);
-		if (scene_description == FALSE)
-			break ;
+		if (line[0] != '\n')
+		{
+			if (ft_check_scene(cub->file) == FALSE)
+				result = ft_handle_scene(cub->file, line);
+			if (ft_check_scene(cub->file) == TRUE)
+				printf("map");
+		}
+		if (result == FAIL)
+			return (ft_handle_error(cub, line, 1));
 		ft_free_ptr(line);
 	}
+	ft_debug_cub(cub);
 	close(fd);
 	return (SUCCESS);
 }

@@ -1,29 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_has_delimitor.c                                 :+:      :+:    :+:   */
+/*   ft_handle_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 21:09:13 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/11 12:48:01 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/03/13 17:54:24 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/03/13 17:54:24 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
-
-int	ft_has_delimitor(char *str, int c)
-{
-	size_t	count;
-
-	if (!str)
-		return (FALSE);
-	count = 0;
-	while (str && str[count])
-	{
-		if (str[count] == c)
-			return (TRUE);
-		count++;
-	}
-	return (FALSE);
-}
+int	ft_handle_map(void);

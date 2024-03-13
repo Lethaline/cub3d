@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_has_delimitor.c                                 :+:      :+:    :+:   */
+/*   ft_color_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 21:09:13 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/11 12:48:01 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/03/13 16:24:30 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/03/13 16:24:32 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_has_delimitor(char *str, int c)
+t_color	*ft_color_new(void)
 {
-	size_t	count;
+	t_color	*new;
 
-	if (!str)
-		return (FALSE);
-	count = 0;
-	while (str && str[count])
-	{
-		if (str[count] == c)
-			return (TRUE);
-		count++;
-	}
-	return (FALSE);
+	new = (t_color *)malloc(sizeof(t_color));
+	if (!new)
+		return (NULL);
+	ft_init_color(&new);
+	return (new);
 }

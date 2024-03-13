@@ -1,6 +1,6 @@
 NO ./filetest/correct.cub
 SO ./filetest/correct.cub
-WE ./filetest/correct.cub
+WE ./lol
 EA ./filetest/correct.cub
 
 F 220,100,0

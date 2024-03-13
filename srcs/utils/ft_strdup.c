@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_has_delimitor.c                                 :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 21:09:13 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/11 12:48:01 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/03/13 17:43:42 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/03/13 17:43:43 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_has_delimitor(char *str, int c)
+char	*ft_strdup(const char *s1)
 {
+	char	*str;
 	size_t	count;
+	size_t	len;
 
-	if (!str)
-		return (FALSE);
 	count = 0;
-	while (str && str[count])
+	if (!s1)
+		return (NULL);
+	len = ft_strlen(s1);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	while (s1 && s1[count])
 	{
-		if (str[count] == c)
-			return (TRUE);
+		str[count] = s1[count];
 		count++;
 	}
-	return (FALSE);
+	str[count] = '\0';
+	return (str);
 }

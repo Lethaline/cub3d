@@ -1,7 +1,10 @@
+WE ./filetest/correct.cub
+WE ./filetest/correct.cub
 NO ./filetest/correct.cub
 SO ./filetest/correct.cub
 WE ./filetest/correct.cub
 EA ./filetest/correct.cub
+WE ./filetest/correct.cub
 
 F 220,100,0
 C 225,30,0

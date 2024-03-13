@@ -26,7 +26,7 @@ static char	*ft_save_memory(char *buffer)
 	size_t	count;
 	size_t	index;
 	char	*save;
-	
+
 	count = 0;
 	while (buffer && buffer[count] && buffer[count] != '\n')
 		count++;
@@ -79,7 +79,7 @@ static char	*ft_read_file(int fd, char *buffer)
 	int		readchar;
 
 	if (!buffer)
-		buffer = ft_calloc(1,1);
+		buffer = ft_calloc(1, 1);
 	str = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	readchar = 1;
 	while (ft_has_delimitor(str, '\n') == FALSE && readchar > 0)

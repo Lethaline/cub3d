@@ -1,5 +1,5 @@
 NO ./filetest/correct.cub
-SO ./filetest/correct.cub
+SO 
 WE ./filetest/correct.cub
 EA ./filetest/correct.cub
 

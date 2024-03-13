@@ -12,19 +12,6 @@
 
 #include "../../includes/cub3d.h"
 
-int	ft_access(char *filename)
-{
-	int fd;
-
-	fd = open(filename, O_RDONLY);
-	if (fd != -1)
-	{
-		close(fd);
-		return (SUCCESS);
-	}
-	return (FAIL);
-}
-
 int	ft_check_input_name(char *filename)
 {
 	size_t	count;
@@ -48,10 +35,10 @@ int	ft_check_input_name(char *filename)
 int	ft_check_inputs(int ac, char **av)
 {
 	if (ac != 2)
-		return (FAIL);
+		return (ft_print_error("Error\nBad number of args\n", FAIL));
 	if (ft_check_input_name(av[1]) == FAIL)
-		return (FAIL);
+		return (ft_print_error("Error\nBad filename\n", FAIL));
 	if (ft_access(av[1]) == FAIL)
-		return (FAIL);
+		return (ft_print_error("Error\nFile canno't be access\n", FAIL));
 	return (SUCCESS);
 }

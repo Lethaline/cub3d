@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_has_delimitor.c                                 :+:      :+:    :+:   */
+/*   ft_print_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 21:09:13 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/11 12:48:01 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/03/13 18:21:09 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/03/13 18:21:10 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_has_delimitor(char *str, int c)
+int	ft_print_error(char *message, int error)
 {
 	size_t	count;
 
-	if (!str)
-		return (FALSE);
 	count = 0;
-	while (str && str[count])
+	while (message && message[count])
 	{
-		if (str[count] == c)
-			return (TRUE);
+		write(2, &message[count], 1);
 		count++;
 	}
-	return (FALSE);
+	return (error);
 }

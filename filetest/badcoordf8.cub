@@ -3,7 +3,7 @@ SO ./filetest/correct.cub
 WE ./filetest/correct.cub
 EA ./filetest/correct.cub
 
-F 220,100,0
+F 220,100,0,156
 C 225,30,0
 
         1111111111111111111111111

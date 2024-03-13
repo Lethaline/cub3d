@@ -12,9 +12,9 @@
 
 #include "../../includes/cub3d.h"
 
-void	ft_init_color(t_color *color)
+void	ft_init_color(t_color **color)
 {
-	color->red = -1;
-	color->green = -1;
-	color->blue = -1;
+	(*color)->red = -1;
+	(*color)->green = -1;
+	(*color)->blue = -1;
 }

@@ -12,19 +12,12 @@
 
 #include "../../includes/cub3d.h"
 
-void	ft_init_file(t_file *file)
+void	ft_init_file(t_file **file)
 {
-	t_color	floor;
-	t_color	cell;
-
-	ft_memset(&floor, 0, sizeof(t_color));
-	ft_memset(&cell, 0, sizeof(t_color));
-	file->north = -1;
-	file->south = -1;
-	file->west = -1;
-	file->east = -1;
-	ft_init_color(&floor);
-	file->floor = &floor;
-	ft_init_color(&cell);
-	file->cell = &cell;
+	(*file)->north = NULL;
+	(*file)->south = NULL;
+	(*file)->west = NULL;
+	(*file)->east = NULL;
+	(*file)->floor = ft_color_new();
+	(*file)->cell = ft_color_new();
 }

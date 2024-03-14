@@ -10,4 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_handle_map(void);
+#include "../../includes/cub3d.h"
+
+int	ft_handle_map(t_cub *cub, char *line)
+{
+    if (ft_check_map(line) == FALSE)
+        return (ft_print_error("Error\nInvalid character in map\n", FAIL));
+    return (SUCCESS);
+}

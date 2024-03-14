@@ -15,5 +15,6 @@
 void	ft_init_cub(t_cub **cub)
 {
 	(*cub)->file = ft_file_new();
+	(*cub)->map_lines = NULL;
 	(*cub)->input_fd = -1;
 }

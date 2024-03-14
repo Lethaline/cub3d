@@ -44,9 +44,18 @@ typedef struct s_file
 	t_color	*cell;
 }	t_file;
 
+typedef struct s_map
+{
+	char 			*line;
+	size_t			len;
+	size_t			nb_line;
+	struct s_map	*next;
+}	t_map;
+
 typedef struct s_cub
 {
 	t_file	*file;
+	t_map	*map_lines;
 	int		input_fd;
 }	t_cub;
 
@@ -97,6 +106,7 @@ t_file	*ft_file_new(void);
 int		ft_check_map(char *line);
 int		ft_check_scene(t_file *file);
 int		ft_check_color(t_color *color);
+int		ft_handle_map(t_cub *cub, char *line);
 int		ft_handle_scene(t_file *file, char *line);
 int		ft_parsing(t_cub *cub);
 

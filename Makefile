@@ -59,6 +59,7 @@ SRC = \
 	  new/ft_file_new.c \
 	  parsing/ft_check_map.c \
 	  parsing/ft_check_scene.c \
+	  parsing/ft_handle_map.c \
 	  parsing/ft_handle_scene.c \
 	  parsing/ft_parsing.c \
 	  utils/ft_access.c \
@@ -77,6 +78,7 @@ SRC = \
 	  utils/get_next_line.c \
 
 TEST = \
+	   badcharmap.cub \
 	   badcoordf1.cub \
 	   badcoordf2.cub \
 	   badcoordf3.cub \
@@ -107,6 +109,7 @@ TEST = \
 	   duplicateso.cub \
 	   duplicatewe.cub \
 	   correct.cub \
+	   newlineinmap.cub \
 
 # **************************************************************************** #
 

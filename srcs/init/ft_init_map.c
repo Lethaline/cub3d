@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:21:10 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/14 17:22:13 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/15 01:06:30 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,5 @@
 void    ft_init_map(t_map **map)
 {
     (*map)->line = NULL;
-    (*map)->len = 0;
-    (*map)->nb_line = 0;
     (*map)->next = NULL;
 }

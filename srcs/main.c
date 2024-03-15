@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:03:12 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/10 14:30:20 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/15 00:20:09 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	main(int ac, char **av)
 	cub = ft_cub_new(av[1]);
 	if (ft_parsing(cub) == FAIL)
 		return (FAIL);
+	ft_exit_program(cub);
 	return (SUCCESS);
 }

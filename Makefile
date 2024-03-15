@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
+#    By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/13 18:54:17 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/03/14 23:38:36 by lethaline        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,25 +48,31 @@ SRC = \
 	  debug/ft_debug.c \
 	  debug/ft_debug_cub.c \
 	  error/ft_print_error.c \
-	  free/ft_free_cub.c \
+	  free/ft_exit_program.c \
+	  free/ft_free_map_lines.c \
 	  free/ft_free_ptr.c \
 	  free/ft_free_tab.c \
 	  init/ft_init_color.c \
 	  init/ft_init_cub.c \
 	  init/ft_init_file.c \
+	  init/ft_init_map.c \
 	  new/ft_color_new.c \
 	  new/ft_cub_new.c \
 	  new/ft_file_new.c \
+	  new/ft_map_new.c \
 	  parsing/ft_check_map.c \
 	  parsing/ft_check_scene.c \
 	  parsing/ft_handle_map.c \
 	  parsing/ft_handle_scene.c \
+	  parsing/ft_lst_to_tab.c \
 	  parsing/ft_parsing.c \
 	  utils/ft_access.c \
 	  utils/ft_atoi.c \
 	  utils/ft_bzero.c \
 	  utils/ft_calloc.c \
 	  utils/ft_has_delimitor.c \
+	  utils/ft_map_add_back.c \
+	  utils/ft_map_size.c \
 	  utils/ft_memset.c \
 	  utils/ft_split.c \
 	  utils/ft_strcpy.c \

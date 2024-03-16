@@ -6,7 +6,7 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/15 01:06:57 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/15 15:58:12 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,19 @@ typedef struct s_cub
 {
 	t_file	*file;
 	t_map	*map_lines;
-	int		**map;
+	char	**map;
 	int		input_fd;
 }	t_cub;
 
 enum e_char
 {
-	SPACE = 1,
-	FLOOR,
-	WALL,
-	NORTH,
-	SOUTH,
-	WEST,
-	EAST,
+	SPACE = 32,
+	FLOOR = 48,
+	WALL = 49,
+	NORTH = 78,
+	SOUTH = 83,
+	WEST = 87,
+	EAST = 69
 };
 
 // Checks
@@ -112,7 +112,7 @@ int		ft_check_scene(t_file *file);
 int		ft_check_color(t_color *color);
 int		ft_handle_map(t_cub *cub, char *line);
 int		ft_handle_scene(t_file *file, char *line);
-int		**ft_lst_to_tab(t_map **list);
+char	**ft_lst_to_tab(t_map **list);
 int		ft_parsing(t_cub *cub);
 
 // Utils

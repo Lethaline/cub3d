@@ -6,7 +6,7 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 23:11:01 by lethaline         #+#    #+#             */
-/*   Updated: 2024/03/15 00:44:20 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/15 22:46:39 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_exit_program(t_cub *cub)
 {
 	ft_free_map_lines(&cub->map_lines);
-	ft_free_int_tab(cub);
+	ft_free_tab(cub->map);
 	ft_free_ptr(cub->file->floor);
 	ft_free_ptr(cub->file->cell);
 	ft_free_ptr(cub->file->north);

@@ -6,7 +6,7 @@
 #    By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/14 23:38:36 by lethaline        ###   ########.fr        #
+#    Updated: 2024/03/15 23:12:54 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = cub3d
 
 RM = rm -rf
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 # Directories
 

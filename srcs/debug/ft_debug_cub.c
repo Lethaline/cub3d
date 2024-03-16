@@ -6,30 +6,11 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:13:50 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/15 00:04:54 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/15 21:07:27 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-void	ft_debug_int_map(int **tab)
-{
-	size_t	index;
-	size_t	jndex;
-
-	index = 0;
-	while (tab && tab[index])
-	{
-		jndex = 0;
-		while (tab[index] && tab[index][jndex])
-		{
-			printf("%d", tab[index][jndex]);
-			jndex++;
-		}
-		printf("\n");
-		index++;
-	}
-}
 
 void	ft_debug_cub(t_cub *cub)
 {
@@ -46,12 +27,12 @@ void	ft_debug_cub(t_cub *cub)
 	printf("Cell GREEN : %d\n", cub->file->cell->green);
 	printf("Cell BLUE : %d\n", cub->file->cell->blue);
 
-	t_map *temp;
+	size_t	count;
 
-	temp = cub->map_lines;
-	while (temp)
+	count = 0;
+	while (cub->map && cub->map[count])
 	{
-		printf("%s",temp->line);
-		temp = temp->next;
+		printf("%s\n", cub->map[count]);
+		count++;
 	}
 }

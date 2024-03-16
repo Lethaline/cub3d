@@ -6,61 +6,75 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 23:36:22 by lethaline         #+#    #+#             */
-/*   Updated: 2024/03/15 01:12:38 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/15 22:41:38 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_lexer(int c)
-{
-	if (c == ' ')
-		return (SPACE);
-	if (c == '0')
-		return (FLOOR);
-	if (c == '1')
-		return (WALL);
-	if (c == 'N')
-		return (NORTH);
-	if (c == 'S')
-		return (SOUTH);
-	if (c == 'W')
-		return (WEST);
-	return (EAST);
-}
-
-void	ft_copy_map(int *map, t_map *map_line)
+int	ft_new_line(char *line)
 {
 	size_t	count;
 
 	count = 0;
-	while (map_line->line && map_line->line[count])
+	while (line && line[count])
 	{
-		if (map_line->line[count] != '\n')
-			map[count] = ft_lexer(map_line->line[count]);
+		if (line[count] == '\n')
+			return (TRUE);
 		count++;
 	}
+	return (FALSE);
 }
 
-int	**ft_lst_to_tab(t_map **list)
+char	*ft_remove_new_line(char *line)
+{
+	size_t	index;
+	size_t	jndex;
+	char	*temp;
+
+	index = 0;
+	jndex = 0;
+	temp = (char *)malloc(sizeof(char) * ft_strlen(line));
+	if (!temp)
+		return (NULL);
+	while (line && line[index])
+	{
+		if (line[index] != '\n')
+		{
+			temp[jndex] = line[index];
+			jndex++;
+		}
+		index++;
+	}
+	temp[jndex] = '\0';
+	return (temp);
+}
+
+char	**ft_lst_to_tab(t_map **list)
 {
 	size_t	len;
 	size_t	count;
-	int		**map;
+	char	**map;
 
 	len = ft_map_size(*list);
-	map = (int **)malloc(sizeof(int *) * len);
+	map = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!map)
 		return (NULL);
 	count = 0;
-	while (*list)
+	while (*list && count < len)
 	{
-		map[count] = (int *)malloc(sizeof(int) * ft_strlen((*list)->line));
+		if (ft_new_line((*list)->line) == TRUE)
+			map[count] = ft_remove_new_line((*list)->line);
+		else
+			map[count] = ft_strdup((*list)->line);
 		if (!map[count])
+		{
+			ft_free_tab(map);
 			return (NULL);
-		ft_copy_map(map[count], *list);
+		}
 		count++;
 		*list = (*list)->next;
 	}
+	map[count] = NULL;
 	return (map);
 }

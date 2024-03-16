@@ -6,7 +6,7 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 23:16:28 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/15 01:13:07 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/15 22:57:56 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_work_on_map(t_cub *cub)
 	return (FALSE);
 }
 
-int	ft_parsing_listener(t_cub *cub, char *line)
+static int	ft_parsing_listener(t_cub *cub, char *line)
 {
 	if (line[0] == '\n' && ft_work_on_map(cub) == TRUE)
 		return (ft_print_error("Error\nNew line not allowed in map\n", FAIL));
@@ -45,7 +45,6 @@ int	ft_parsing_listener(t_cub *cub, char *line)
 int	ft_parsing(t_cub *cub)
 {
 	char	*line;
-	int		result;
 
 	while (1)
 	{
@@ -56,9 +55,5 @@ int	ft_parsing(t_cub *cub)
 			return (ft_handle_error(cub, line, FAIL));
 		ft_free_ptr(line);
 	}
-	/*cub->map = ft_lst_to_tab(&cub->map_lines);
-	if (!cub->map)
-		return (ft_print_error("Error\nTab creation\n", FAIL));*/
-	close(cub->input_fd);
 	return (SUCCESS);
 }

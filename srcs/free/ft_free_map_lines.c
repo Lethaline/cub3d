@@ -6,26 +6,24 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 22:59:23 by lethaline         #+#    #+#             */
-/*   Updated: 2024/03/15 21:50:46 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/17 01:05:18 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void	ft_free_map(t_map *map)
-{
-	ft_free_ptr(map->line);
-	ft_free_ptr(map);
-}
-
-void	ft_free_map_lines(t_map **map)
+void	ft_free_map_lines(t_cub *cub)
 {
 	t_map	*next;
 
-	while (*map)
+	if (cub && cub->map_lines)
 	{
-		next = (*map)->next;
-		ft_free_map(*map);
-		*map = next;
+		while (cub->map_lines)
+		{
+			next = cub->map_lines->next;
+			ft_free_ptr(cub->map_lines->line);
+			ft_free_ptr(cub->map_lines);
+			cub->map_lines = next;
+		}
 	}
 }

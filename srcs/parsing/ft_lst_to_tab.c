@@ -6,7 +6,7 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 23:36:22 by lethaline         #+#    #+#             */
-/*   Updated: 2024/03/15 22:41:38 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/17 02:38:04 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ char	**ft_lst_to_tab(t_map **list)
 	size_t	len;
 	size_t	count;
 	char	**map;
+	t_map	*first;
 
 	len = ft_map_size(*list);
+	first = *list;
 	map = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!map)
 		return (NULL);
@@ -68,13 +70,11 @@ char	**ft_lst_to_tab(t_map **list)
 		else
 			map[count] = ft_strdup((*list)->line);
 		if (!map[count])
-		{
-			ft_free_tab(map);
-			return (NULL);
-		}
+			return (ft_free_tab(map));
 		count++;
 		*list = (*list)->next;
 	}
 	map[count] = NULL;
+	*list = first;
 	return (map);
 }

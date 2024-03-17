@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_cub.c                                      :+:      :+:    :+:   */
+/*   ft_play_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 14:15:50 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/17 01:23:09 by lethaline        ###   ########.fr       */
+/*   Created: 2024/03/17 01:11:49 by lethaline         #+#    #+#             */
+/*   Updated: 2024/03/17 02:32:28 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_init_cub(t_cub **cub)
+t_play	*ft_play_new(int x, int y, char direction)
 {
-	(*cub)->file = ft_file_new();
-	(*cub)->map_lines = NULL;
-	(*cub)->map = NULL;
-	(*cub)->player = NULL;
-	(*cub)->input_fd = -1;
+	t_play	*new;
+
+	new = (t_play *)malloc(sizeof(t_play));
+	if (!new)
+		return (NULL);
+	ft_init_play(&new);
+	new->x = x;
+	new->y = y;
+	new->direction = direction;
+	return (new);
 }

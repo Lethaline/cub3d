@@ -6,14 +6,14 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:21:10 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/15 01:06:30 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/17 02:33:08 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void    ft_init_map(t_map **map)
+void	ft_init_map(t_map **map)
 {
-    (*map)->line = NULL;
-    (*map)->next = NULL;
+	(*map)->line = NULL;
+	(*map)->next = NULL;
 }

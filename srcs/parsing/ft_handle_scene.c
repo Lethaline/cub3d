@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_scene.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 22:47:23 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/13 01:17:14 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/17 02:24:43 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,10 @@ static int	ft_handle_color(char **tab, t_file *file)
 		return (ft_print_error("Error\nColors code : Red,Green,Blue\n", FAIL));
 	}
 	if (!ft_strncmp(tab[0], "F", 1) && ft_check_color(file->floor))
-		return (ft_print_error("Error\nDuplicate F line\n", FAIL));
-	if (!ft_strncmp(tab[0], "C", 1) && ft_check_color(file->cell))
-		return (ft_print_error("Error\nDuplicate C line\n", FAIL));
-	if (!ft_strncmp(tab[0], "F", 1))
+		result = ft_print_error("Error\nDuplicate F line\n", FAIL);
+	else if (!ft_strncmp(tab[0], "C", 1) && ft_check_color(file->cell))
+		result = ft_print_error("Error\nDuplicate C line\n", FAIL);
+	else if (!ft_strncmp(tab[0], "F", 1))
 		result = ft_fill_color(rgb, file->floor);
 	else
 		result = ft_fill_color(rgb, file->cell);
@@ -107,7 +107,10 @@ int	ft_handle_scene(t_file *file, char *line)
 	if (!tab)
 		return (FAIL);
 	if (ft_tablen(tab) != 2)
+	{
+		ft_free_tab(tab);
 		return (ft_print_error("Error\nSprite code : ID name\n", FAIL));
+	}
 	len = ft_strlen(tab[0]);
 	if (len == 1)
 		result = ft_handle_color(tab, file);

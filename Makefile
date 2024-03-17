@@ -6,7 +6,7 @@
 #    By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/15 23:12:54 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/03/17 02:29:35 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = cub3d
 
 RM = rm -rf
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 
 # Directories
 
@@ -49,17 +49,21 @@ SRC = \
 	  debug/ft_debug_cub.c \
 	  error/ft_print_error.c \
 	  free/ft_exit_program.c \
+	  free/ft_free_cub.c \
 	  free/ft_free_map_lines.c \
 	  free/ft_free_ptr.c \
 	  free/ft_free_tab.c \
+	  game/ft_prepare_game.c \
 	  init/ft_init_color.c \
 	  init/ft_init_cub.c \
 	  init/ft_init_file.c \
 	  init/ft_init_map.c \
+	  init/ft_init_play.c \
 	  new/ft_color_new.c \
 	  new/ft_cub_new.c \
 	  new/ft_file_new.c \
 	  new/ft_map_new.c \
+	  new/ft_play_new.c \
 	  parsing/ft_check_map.c \
 	  parsing/ft_check_scene.c \
 	  parsing/ft_handle_map.c \
@@ -114,8 +118,10 @@ TEST = \
 	   duplicateno.cub \
 	   duplicateso.cub \
 	   duplicatewe.cub \
-	   correct.cub \
 	   newlineinmap.cub \
+	   multiplep.cub \
+	   openmap.cub \
+	   correct.cub \
 
 # **************************************************************************** #
 
@@ -176,5 +182,5 @@ $(OBJSDIR)/%.o: $(SRCSDIR)/%.c
 test: $(NAME) $(TESTFILES)
 	for test in $(TESTFILES) ; do \
 		echo '$(LOG_CYAN)' $$test '$(LOG_NOCOLOR)' ; \
-		./cub3d $$test ; \
+		valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d $$test ; \
 	done

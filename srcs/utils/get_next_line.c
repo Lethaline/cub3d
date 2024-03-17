@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 15:20:01 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/11 12:54:55 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/17 02:17:34 by lethaline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ static char	*ft_read_file(int fd, char *buffer)
 	char	*str;
 	int		readchar;
 
-	if (!buffer)
-		buffer = ft_calloc(1, 1);
 	str = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	readchar = 1;
 	while (ft_has_delimitor(str, '\n') == FALSE && readchar > 0)
@@ -103,7 +101,10 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || read(fd, 0, 0) < 0 || BUFFER_SIZE <= 0)
+	{
+		ft_free_ptr(buffer);
 		return (NULL);
+	}
 	buffer = ft_read_file(fd, buffer);
 	if (!buffer)
 		return (NULL);

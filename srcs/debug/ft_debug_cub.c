@@ -6,7 +6,7 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:13:50 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/15 21:07:27 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/17 02:30:21 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,4 @@ void	ft_debug_cub(t_cub *cub)
 	printf("Cell RED : %d\n", cub->file->cell->red);
 	printf("Cell GREEN : %d\n", cub->file->cell->green);
 	printf("Cell BLUE : %d\n", cub->file->cell->blue);
-
-	size_t	count;
-
-	count = 0;
-	while (cub->map && cub->map[count])
-	{
-		printf("%s\n", cub->map[count]);
-		count++;
-	}
 }

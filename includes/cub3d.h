@@ -6,7 +6,7 @@
 /*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/15 15:58:12 by lethaline        ###   ########.fr       */
+/*   Updated: 2024/03/17 02:38:18 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,22 @@ typedef struct s_file
 
 typedef struct s_map
 {
-	char 			*line;
+	char			*line;
 	struct s_map	*next;
 }	t_map;
+
+typedef struct s_play
+{
+	int		x;
+	int		y;
+	char	direction;
+}	t_play;
 
 typedef struct s_cub
 {
 	t_file	*file;
 	t_map	*map_lines;
+	t_play	*player;
 	char	**map;
 	int		input_fd;
 }	t_cub;
@@ -85,25 +93,32 @@ int		ft_print_error(char *message, int error);
 
 // Free
 
-void	ft_exit_program(t_cub *cub);
-void	ft_free_map_lines(t_map **map);
+int		ft_exit_program(t_cub *cub);
+void	ft_free_map_lines(t_cub *cub);
 void	ft_free_ptr(void *ptr);
 void	ft_free_int_tab(t_cub *cub);
-void	ft_free_tab(char **tab);
+int		ft_free_tab(char **tab);
+void	ft_free_cub(t_cub *cub);
+
+// Game
+
+int		ft_prepare_game(t_cub *cub);
 
 // Init
 
 void	ft_init_color(t_color **color);
 void	ft_init_cub(t_cub **cub);
 void	ft_init_file(t_file **file);
-void    ft_init_map(t_map **map);
+void	ft_init_map(t_map **map);
+void	ft_init_play(t_play **player);
 
 // New
 
 t_color	*ft_color_new(void);
 t_cub	*ft_cub_new(char *filename);
 t_file	*ft_file_new(void);
-t_map   *ft_map_new(void *line);
+t_map	*ft_map_new(void *line);
+t_play	*ft_play_new(int x, int y, char direction);
 
 // Parsing
 

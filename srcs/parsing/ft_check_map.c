@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:25:16 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/13 20:25:17 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/17 02:33:24 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_check_map(char *line)
 		return (FALSE);
 	while (line && line[count])
 	{
-		if (ft_valide_char(line[count], " 10NOWE\n") == FALSE)
+		if (ft_valide_char(line[count], " 10NSWE\n") == FALSE)
 			return (FALSE);
 		count++;
 	}

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
+#    By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/13 15:53:24 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/03/17 02:29:35 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ CFLAGS = -Wall -Werror -Wextra
 SRCSDIR = srcs
 INCSDIR = includes
 OBJSDIR = objs
+TESTDIR = filetest
 
 OS = $(shell uname)
 ifeq ($(OS), Linux)
@@ -39,8 +40,88 @@ MLXDIR = $(OSDIR)
 # Sources
 
 INC = \
+	  cub3d.h \
 
 SRC = \
+	  main.c \
+	  checks/ft_checks.c \
+	  debug/ft_debug.c \
+	  debug/ft_debug_cub.c \
+	  error/ft_print_error.c \
+	  free/ft_exit_program.c \
+	  free/ft_free_cub.c \
+	  free/ft_free_map_lines.c \
+	  free/ft_free_ptr.c \
+	  free/ft_free_tab.c \
+	  game/ft_prepare_game.c \
+	  init/ft_init_color.c \
+	  init/ft_init_cub.c \
+	  init/ft_init_file.c \
+	  init/ft_init_map.c \
+	  init/ft_init_play.c \
+	  new/ft_color_new.c \
+	  new/ft_cub_new.c \
+	  new/ft_file_new.c \
+	  new/ft_map_new.c \
+	  new/ft_play_new.c \
+	  parsing/ft_check_map.c \
+	  parsing/ft_check_scene.c \
+	  parsing/ft_handle_map.c \
+	  parsing/ft_handle_scene.c \
+	  parsing/ft_lst_to_tab.c \
+	  parsing/ft_parsing.c \
+	  utils/ft_access.c \
+	  utils/ft_atoi.c \
+	  utils/ft_bzero.c \
+	  utils/ft_calloc.c \
+	  utils/ft_has_delimitor.c \
+	  utils/ft_map_add_back.c \
+	  utils/ft_map_size.c \
+	  utils/ft_memset.c \
+	  utils/ft_split.c \
+	  utils/ft_strcpy.c \
+	  utils/ft_strdup.c \
+	  utils/ft_strjoin.c \
+	  utils/ft_strlen.c \
+	  utils/ft_strncmp.c \
+	  utils/ft_tablen.c \
+	  utils/get_next_line.c \
+
+TEST = \
+	   badcharmap.cub \
+	   badcoordf1.cub \
+	   badcoordf2.cub \
+	   badcoordf3.cub \
+	   badcoordf4.cub \
+	   badcoordf5.cub \
+	   badcoordf6.cub \
+	   badcoordf7.cub \
+	   badcoordf8.cub \
+	   badinputea1.cub \
+	   badinputea2.cub \
+	   badinputea3.cub \
+	   badinputno1.cub \
+	   badinputno2.cub \
+	   badinputno3.cub \
+	   badinputso1.cub \
+	   badinputso2.cub \
+	   badinputso3.cub \
+	   badinputwe1.cub \
+	   badinputwe2.cub \
+	   badinputwe3.cub \
+	   badname \
+	   badname2.cuby \
+	   badname3.cu \
+	   duplicatec.cub \
+	   duplicateea.cub \
+	   duplicatef.cub \
+	   duplicateno.cub \
+	   duplicateso.cub \
+	   duplicatewe.cub \
+	   newlineinmap.cub \
+	   multiplep.cub \
+	   openmap.cub \
+	   correct.cub \
 
 # **************************************************************************** #
 
@@ -71,6 +152,8 @@ MLX_INC = -I $(MLXDIR)
 MLX_LIB = $(addprefix $(MLXDIR)/,libmlx.a)
 MLX_LINK = -L $(MLXDIR) -l mlx $(LINKS)
 
+TESTFILES = $(addprefix $(TESTDIR)/, $(TEST))
+
 all : $(NAME) $(MLX_LIB)
 
 $(NAME) : mlx $(OBJS)
@@ -95,3 +178,9 @@ $(OBJSDIR)/%.o: $(SRCSDIR)/%.c
 	mkdir -p $(OBJSDIR) $(OBJS_DIR)
 	echo "$(LOG_CLEAR)$(NAME)... $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"
 	$(CC) -c -o $@ $< $(MLX_INC) $(INCS) $(FLAGS)
+
+test: $(NAME) $(TESTFILES)
+	for test in $(TESTFILES) ; do \
+		echo '$(LOG_CYAN)' $$test '$(LOG_NOCOLOR)' ; \
+		valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d $$test ; \
+	done

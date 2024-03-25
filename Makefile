@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+         #
+#    By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/17 02:29:35 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/03/25 16:01:36 by cmartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,10 +54,12 @@ SRC = \
 	  free/ft_free_ptr.c \
 	  free/ft_free_tab.c \
 	  game/ft_prepare_game.c \
+	  game/ft_start_game.c \
 	  init/ft_init_color.c \
 	  init/ft_init_cub.c \
 	  init/ft_init_file.c \
 	  init/ft_init_map.c \
+	  init/ft_init_mlx.c \
 	  init/ft_init_play.c \
 	  new/ft_color_new.c \
 	  new/ft_cub_new.c \

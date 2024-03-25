@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
+/*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/17 02:38:18 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:09:57 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "mlx.h"
 # include "stdio.h"
 # include "stdlib.h"
 # include "unistd.h"
@@ -66,6 +67,17 @@ typedef struct s_cub
 	int		input_fd;
 }	t_cub;
 
+typedef struct s_mlx //the mlx structure
+{
+	void  	*wind;
+	void  	*mlx_p;
+	t_cub	*cub;
+	
+	// t_ray   *ray; // the ray structure
+	// t_data   *dt; // the data structure
+	// t_player  *ply; // the player structure
+} t_mlx;
+
 enum e_char
 {
 	SPACE = 32,
@@ -103,6 +115,7 @@ void	ft_free_cub(t_cub *cub);
 // Game
 
 int		ft_prepare_game(t_cub *cub);
+void	ft_start_game(t_mlx *mlx);
 
 // Init
 
@@ -110,6 +123,7 @@ void	ft_init_color(t_color **color);
 void	ft_init_cub(t_cub **cub);
 void	ft_init_file(t_file **file);
 void	ft_init_map(t_map **map);
+void	ft_init_mlx(t_mlx *mlx);
 void	ft_init_play(t_play **player);
 
 // New

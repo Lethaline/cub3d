@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+         #
+#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/25 16:01:36 by cmartino         ###   ########.fr        #
+#    Updated: 2024/03/27 10:04:07 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ SRC = \
 	  new/ft_cub_new.c \
 	  new/ft_file_new.c \
 	  new/ft_map_new.c \
+	  new/ft_mlx_new.c \
 	  new/ft_play_new.c \
 	  parsing/ft_check_map.c \
 	  parsing/ft_check_scene.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/25 16:09:57 by cmartino         ###   ########.fr       */
+/*   Updated: 2024/03/27 10:05:24 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int		ft_exit_program(t_cub *cub);
 void	ft_free_map_lines(t_cub *cub);
 void	ft_free_ptr(void *ptr);
 void	ft_free_int_tab(t_cub *cub);
-int		ft_free_tab(char **tab);
+char	**ft_free_tab(char **tab);
 void	ft_free_cub(t_cub *cub);
 
 // Game
@@ -123,7 +123,7 @@ void	ft_init_color(t_color **color);
 void	ft_init_cub(t_cub **cub);
 void	ft_init_file(t_file **file);
 void	ft_init_map(t_map **map);
-void	ft_init_mlx(t_mlx *mlx);
+void	ft_init_mlx(t_mlx **mlx);
 void	ft_init_play(t_play **player);
 
 // New
@@ -132,6 +132,7 @@ t_color	*ft_color_new(void);
 t_cub	*ft_cub_new(char *filename);
 t_file	*ft_file_new(void);
 t_map	*ft_map_new(void *line);
+t_mlx   *ft_mlx_new(t_cub *cub);
 t_play	*ft_play_new(int x, int y, char direction);
 
 // Parsing

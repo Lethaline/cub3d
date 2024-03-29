@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+         #
+#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/29 11:06:16 by cmartino         ###   ########.fr        #
+#    Updated: 2024/03/29 12:18:09 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRC = \
 	  utils/ft_has_delimitor.c \
 	  utils/ft_map_add_back.c \
 	  utils/ft_map_size.c \
+	  utils/ft_map_height.c \
 	  utils/ft_memset.c \
 	  utils/ft_split.c \
 	  utils/ft_strcpy.c \

@@ -10,7 +10,6 @@ int	ft_test(t_mlx *mlx, int code)
 
 int	ft_key_pressed(int key_code, t_mlx *mlx)
 {
-	printf("%d", key_code);
 	if (key_code == 53) //ESCP KEY
 	{
 		// mlx_destroy_image(mlx->mlx_p, mlx->img); //-> pas encore de img

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_prepare_game.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 01:10:08 by lethaline         #+#    #+#             */
-/*   Updated: 2024/03/17 02:31:28 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/29 13:14:08 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ static int	ft_check_player(t_cub *cub, size_t x, size_t y)
 		|| cub->map[x][y] == 'W' || cub->map[x][y] == 'E') && cub->player)
 		return (ft_print_error("Error\nMultiple players", FAIL));
 	if (cub->map[x][y] == 'N')
-		cub->player = ft_play_new(x, y, 'N');
+		cub->player = ft_play_new(y, x, 3*(PI/2));
 	if (cub->map[x][y] == 'S')
-		cub->player = ft_play_new(x, y, 'S');
+		cub->player = ft_play_new(y, x, PI/2);
 	if (cub->map[x][y] == 'W')
-		cub->player = ft_play_new(x, y, 'W');
+		cub->player = ft_play_new(y, x, PI);
 	if (cub->map[x][y] == 'E')
-		cub->player = ft_play_new(x, y, 'E');
+		cub->player = ft_play_new(y, x, 0);
 	if (!cub->player)
 		return (ft_print_error("Error\nDuring malloc\n", FAIL));
 	return (SUCCESS);

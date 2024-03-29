@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/29 11:52:35 by cmartino         ###   ########.fr       */
+/*   Updated: 2024/03/29 13:17:21 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,18 @@ typedef struct s_file
 	t_color	*cell;
 }	t_file;
 
-typedef struct s_map // ajouter map WIDTH et map HEIGHT
+typedef struct s_map
 {
 	char			*line;
 	struct s_map	*next;
-	// rajouter previous
+	struct s_map	*previous;
 }	t_map;
 
 typedef struct s_play
 {
-	int		x;
-	int		y;
-	// je ne comprends pas x et y (y tjrs negatif????)
-	char	direction; // changer en angle
+	size_t	x;
+	size_t	y;
+	double	direction;
 }	t_play;
 
 typedef struct s_cub
@@ -76,7 +75,9 @@ typedef struct s_cub
 	t_file	*file;
 	t_map	*map_lines;
 	t_play	*player;
-	char	**map; // map 
+	size_t	width;
+	size_t	height;
+	char	**map; // map
 	int		input_fd;
 }	t_cub;
 
@@ -142,7 +143,7 @@ t_cub	*ft_cub_new(char *filename);
 t_file	*ft_file_new(void);
 t_map	*ft_map_new(void *line);
 t_mlx   *ft_mlx_new(t_cub *cub);
-t_play	*ft_play_new(int x, int y, char direction);
+t_play	*ft_play_new(size_t x, size_t y, double direction);
 
 // Parsing
 
@@ -164,7 +165,8 @@ void	*ft_memset(void *dest, int c, size_t len);
 char	**ft_split(const char *str, char *c);
 int		ft_has_delimitor(char *str, int c);
 void	ft_map_add_back(t_map **map, t_map *new);
-size_t	ft_map_size(t_map *map);
+size_t	ft_map_size(t_map **map);
+size_t	ft_map_height(t_map **map);
 char	*ft_strcpy(char *src, int n);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char *s1, char *s2);

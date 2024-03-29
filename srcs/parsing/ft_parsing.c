@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 23:16:28 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/17 02:35:13 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/29 13:19:46 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	ft_parsing(t_cub *cub)
 			return (ft_handle_error(cub, line, FAIL));
 		ft_free_ptr(line);
 	}
+	cub->width = ft_map_size(&cub->map_lines);
+	cub->height = ft_map_height(&cub->map_lines);
 	cub->map = ft_lst_to_tab(&cub->map_lines);
 	if (!cub->map)
 	{

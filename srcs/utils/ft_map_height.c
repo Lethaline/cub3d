@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_play_new.c                                      :+:      :+:    :+:   */
+/*   ft_map_height.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 01:11:49 by lethaline         #+#    #+#             */
-/*   Updated: 2024/03/29 12:05:41 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/03/29 12:15:43 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/03/29 13:17:13 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-t_play	*ft_play_new(size_t x, size_t y, double direction)
+size_t	ft_map_height(t_map **map)
 {
-	t_play	*new;
+	size_t	count;
+	size_t	height;
+	t_map	*temp;
 
-	new = (t_play *)malloc(sizeof(t_play));
-	if (!new)
-		return (NULL);
-	ft_init_play(&new);
-	new->x = x;
-	new->y = y;
-	new->direction = direction;
-	return (new);
+	count = 0;
+	height = 0;
+	temp = *map;
+	while (temp)
+	{
+		if (height < ft_strlen(temp->line))
+			height = ft_strlen(temp->line);
+		count++;
+		temp = temp->next;
+	}
+	return (height);
 }

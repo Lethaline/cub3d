@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:03:12 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/27 10:04:53 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/29 11:30:57 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	main(int ac, char **av)
 		return (FAIL);
 	if (ft_prepare_game(cub) == FAIL)
 		return (ft_exit_program(cub));
+
+	printf("%d  - %d", cub->player->x, cub->player->y);
+
+
 	mlx = ft_mlx_new(cub);
 	ft_start_game(mlx);
 	ft_exit_program(cub);

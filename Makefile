@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
+#    By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/27 10:04:07 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/03/29 11:06:16 by cmartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -185,5 +185,5 @@ $(OBJSDIR)/%.o: $(SRCSDIR)/%.c
 test: $(NAME) $(TESTFILES)
 	for test in $(TESTFILES) ; do \
 		echo '$(LOG_CYAN)' $$test '$(LOG_NOCOLOR)' ; \
-		valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d $$test ; \
+		./cub3d $$test ; \
 	done

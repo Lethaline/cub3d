@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 10:00:13 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/27 10:07:39 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/29 11:25:56 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_mlx   *ft_mlx_new(t_cub *cub)
         return (NULL);
     ft_init_mlx(&new);
     new->mlx_p = mlx_init();
-    new->wind = mlx_new_window(new->mlx_p, 500, 500, "Cub3d");
+    new->wind = mlx_new_window(new->mlx_p, WIDTH, HEIGHT, "Cub3d");
     new->cub = cub;
     return (new);
 }

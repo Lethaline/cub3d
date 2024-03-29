@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/27 10:05:24 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/29 11:52:35 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// https://medium.com/@afatir.ahmedfatir/cub3d-tutorial-af5dd31d2fcf
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -23,9 +25,18 @@
 # define FALSE 0
 # define SUCCESS 0
 # define FAIL 1
+# define PI 3.14
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
+# endif
+
+# ifndef WIDTH
+#  define WIDTH 1280
+# endif
+
+# ifndef HEIGHT
+#  define HEIGHT 960
 # endif
 
 typedef struct s_color
@@ -45,17 +56,19 @@ typedef struct s_file
 	t_color	*cell;
 }	t_file;
 
-typedef struct s_map
+typedef struct s_map // ajouter map WIDTH et map HEIGHT
 {
 	char			*line;
 	struct s_map	*next;
+	// rajouter previous
 }	t_map;
 
 typedef struct s_play
 {
 	int		x;
 	int		y;
-	char	direction;
+	// je ne comprends pas x et y (y tjrs negatif????)
+	char	direction; // changer en angle
 }	t_play;
 
 typedef struct s_cub
@@ -63,19 +76,15 @@ typedef struct s_cub
 	t_file	*file;
 	t_map	*map_lines;
 	t_play	*player;
-	char	**map;
+	char	**map; // map 
 	int		input_fd;
 }	t_cub;
 
-typedef struct s_mlx //the mlx structure
+typedef struct s_mlx
 {
 	void  	*wind;
 	void  	*mlx_p;
 	t_cub	*cub;
-	
-	// t_ray   *ray; // the ray structure
-	// t_data   *dt; // the data structure
-	// t_player  *ply; // the player structure
 } t_mlx;
 
 enum e_char

@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/29 13:23:52 by cmartino         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:05:28 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,19 @@ typedef struct s_play
 	double	direction;
 }	t_play;
 
+typedef struct s_ray //the ray structure
+{
+	double ray_angle; // ray angle
+	double distance; // distance to the wall
+	int  flag;  // flag for the wall
+} t_ray;
+
 typedef struct s_cub
 {
 	t_file	*file;
 	t_map	*map_lines;
 	t_play	*player;
+	t_ray	*ray; //initialiser tout a 0
 	size_t	width;
 	size_t	height;
 	char	**map; // map
@@ -154,6 +162,12 @@ int		ft_handle_map(t_cub *cub, char *line);
 int		ft_handle_scene(t_file *file, char *line);
 char	**ft_lst_to_tab(t_map **list);
 int		ft_parsing(t_cub *cub);
+
+// Raycasting
+
+double	ft_fov(double c_view);
+void	ft_get_intersections(t_mlx *mlx);
+void 	ft_raycasting(t_mlx *mlx);
 
 // Utils
 

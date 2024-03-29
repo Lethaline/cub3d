@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
+#    By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/29 12:18:09 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/03/29 14:23:42 by cmartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,9 @@ SRC = \
 	  parsing/ft_handle_scene.c \
 	  parsing/ft_lst_to_tab.c \
 	  parsing/ft_parsing.c \
+	  raycasting/ft_fov.c \
+	  raycasting/ft_get_intersections.c \
+	  raycasting/ft_raycasting.c \
 	  utils/ft_access.c \
 	  utils/ft_atoi.c \
 	  utils/ft_bzero.c \

@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_cub.c                                      :+:      :+:    :+:   */
+/*   ft_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 14:15:50 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/29 14:06:25 by cmartino         ###   ########.fr       */
+/*   Created: 2024/03/29 13:30:59 by cmartino          #+#    #+#             */
+/*   Updated: 2024/03/29 15:03:24 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
-t_ray	*ft_ray_new(void)
+void	ft_raycasting(t_mlx *mlx)
 {
-	t_ray	ray;
+	int	ray;
 
-	ray.ray_angle = 0;
-	ray.distance = 0;
-	ray.flag = 0;
-
-	return (&ray);
-}
-
-void	ft_init_cub(t_cub **cub)
-{
-	(*cub)->file = ft_file_new();
-	(*cub)->map_lines = NULL;
-	(*cub)->map = NULL;
-	(*cub)->ray = ft_ray_new();
-	(*cub)->player = NULL;
-	(*cub)->input_fd = -1;
-	(*cub)->width = 0;
-	(*cub)->height = 0;
+	ray = 0;
+	mlx->cub->ray->ray_angle = ft_fov(mlx->cub->player->direction);
+	while (ray < WIDTH)
+	{
+		ft_get_intersections(mlx);
+		ray++;
+	}
 }

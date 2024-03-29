@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_cub.c                                      :+:      :+:    :+:   */
+/*   ft_fov.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 14:15:50 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/29 14:06:25 by cmartino         ###   ########.fr       */
+/*   Created: 2024/03/29 14:19:06 by cmartino          #+#    #+#             */
+/*   Updated: 2024/03/29 14:25:17 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-t_ray	*ft_ray_new(void)
+double	ft_fov(double c_view)
 {
-	t_ray	ray;
+	double	l_view;
 
-	ray.ray_angle = 0;
-	ray.distance = 0;
-	ray.flag = 0;
-
-	return (&ray);
-}
-
-void	ft_init_cub(t_cub **cub)
-{
-	(*cub)->file = ft_file_new();
-	(*cub)->map_lines = NULL;
-	(*cub)->map = NULL;
-	(*cub)->ray = ft_ray_new();
-	(*cub)->player = NULL;
-	(*cub)->input_fd = -1;
-	(*cub)->width = 0;
-	(*cub)->height = 0;
+	l_view = c_view - (PI / 6);
+	if (l_view < 0)
+		l_view = (11 * PI) / 6;
+	if (l_view > (2 * PI))
+		l_view = PI / 6;
+	return (l_view);
 }

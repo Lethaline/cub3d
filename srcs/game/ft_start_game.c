@@ -23,6 +23,6 @@ int	ft_key_pressed(int key_code, t_mlx *mlx)
 void	ft_start_game(t_mlx *mlx){
 	mlx_key_hook(mlx->wind, ft_key_pressed, mlx);
 	mlx_hook(mlx->wind, 17, 0, ft_test, mlx);
-	ft_raycasting(mlx);
+	//ft_raycasting(mlx);
 	mlx_loop(mlx->mlx_p);
 }

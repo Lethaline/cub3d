@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_mlx.c                                      :+:      :+:    :+:   */
+/*   ft_ray_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 12:18:28 by cmartino          #+#    #+#             */
-/*   Updated: 2024/04/08 19:16:53 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/04/08 19:11:51 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/08 19:12:49 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_init_mlx(t_mlx **mlx)
+t_ray	*ft_ray_new(void)
 {
-	(*mlx)->mlx_p = NULL;
-	(*mlx)->wind = NULL;
-	(*mlx)->cub = NULL;
-	(*mlx)->ray = ft_ray_new();
+	t_ray	*new;
+
+	new = (t_ray *)malloc(sizeof(t_ray));
+	if (!new)
+		return (NULL);
+	ft_init_ray(&new);
+	return (new);
 }

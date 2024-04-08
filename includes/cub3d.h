@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/29 15:05:28 by cmartino         ###   ########.fr       */
+/*   Updated: 2024/04/08 19:22:28 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define FALSE 0
 # define SUCCESS 0
 # define FAIL 1
+# define LEFT 1
+# define RIGHT 0
 # define PI 3.14
 
 # ifndef BUFFER_SIZE
@@ -63,6 +65,18 @@ typedef struct s_map
 	struct s_map	*previous;
 }	t_map;
 
+typedef struct s_cub
+{
+	t_file	*file;
+	t_map	*map_lines;
+	size_t	width;
+	size_t	height;
+	size_t	x;
+	size_t	y;
+	char	**map; // map
+	int		input_fd;
+}	t_cub;
+
 typedef struct s_play
 {
 	size_t	x;
@@ -72,28 +86,17 @@ typedef struct s_play
 
 typedef struct s_ray //the ray structure
 {
-	double ray_angle; // ray angle
-	double distance; // distance to the wall
-	int  flag;  // flag for the wall
-} t_ray;
-
-typedef struct s_cub
-{
-	t_file	*file;
-	t_map	*map_lines;
-	t_play	*player;
-	t_ray	*ray; //initialiser tout a 0
-	size_t	width;
-	size_t	height;
-	char	**map; // map
-	int		input_fd;
-}	t_cub;
+	double	angle; // ray angle
+	double	distance; // distance to the wall
+	int		flag;  // flag for the wall
+}	t_ray;
 
 typedef struct s_mlx
 {
 	void  	*wind;
 	void  	*mlx_p;
 	t_cub	*cub;
+	t_ray	*ray;
 } t_mlx;
 
 enum e_char
@@ -143,6 +146,7 @@ void	ft_init_file(t_file **file);
 void	ft_init_map(t_map **map);
 void	ft_init_mlx(t_mlx **mlx);
 void	ft_init_play(t_play **player);
+void	ft_init_ray(t_ray **ray);
 
 // New
 
@@ -152,6 +156,7 @@ t_file	*ft_file_new(void);
 t_map	*ft_map_new(void *line);
 t_mlx   *ft_mlx_new(t_cub *cub);
 t_play	*ft_play_new(size_t x, size_t y, double direction);
+t_ray	*ft_ray_new(void);
 
 // Parsing
 
@@ -163,11 +168,11 @@ int		ft_handle_scene(t_file *file, char *line);
 char	**ft_lst_to_tab(t_map **list);
 int		ft_parsing(t_cub *cub);
 
-// Raycasting
+//// Raycasting
 
-double	ft_fov(double c_view);
-void	ft_get_intersections(t_mlx *mlx);
-void 	ft_raycasting(t_mlx *mlx);
+//double	ft_fov(double c_view);
+//void	ft_get_intersections(t_mlx *mlx);
+//void 	ft_raycasting(t_mlx *mlx);
 
 // Utils
 

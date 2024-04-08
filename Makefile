@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+         #
+#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/03/29 14:23:42 by cmartino         ###   ########.fr        #
+#    Updated: 2024/04/08 19:32:16 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,21 +61,20 @@ SRC = \
 	  init/ft_init_map.c \
 	  init/ft_init_mlx.c \
 	  init/ft_init_play.c \
+	  init/ft_init_ray.c \
 	  new/ft_color_new.c \
 	  new/ft_cub_new.c \
 	  new/ft_file_new.c \
 	  new/ft_map_new.c \
 	  new/ft_mlx_new.c \
 	  new/ft_play_new.c \
+	  new/ft_ray_new.c \
 	  parsing/ft_check_map.c \
 	  parsing/ft_check_scene.c \
 	  parsing/ft_handle_map.c \
 	  parsing/ft_handle_scene.c \
 	  parsing/ft_lst_to_tab.c \
 	  parsing/ft_parsing.c \
-	  raycasting/ft_fov.c \
-	  raycasting/ft_get_intersections.c \
-	  raycasting/ft_raycasting.c \
 	  utils/ft_access.c \
 	  utils/ft_atoi.c \
 	  utils/ft_bzero.c \

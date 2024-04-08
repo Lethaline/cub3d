@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/08 19:22:28 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/04/08 19:50:12 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "stdlib.h"
 # include "unistd.h"
 # include "fcntl.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 # define TRUE 1
 # define FALSE 0

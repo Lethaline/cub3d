@@ -6,7 +6,7 @@
 #    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/04/08 19:32:16 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/04/08 19:54:57 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ TESTDIR = filetest
 OS = $(shell uname)
 ifeq ($(OS), Linux)
 	OSDIR := minilibx/minilinux
+	LINKS := -lX11 -lXext
 else
 	OSDIR := minilibx/minimac
 	LINKS := -framework OpenGL -framework AppKit

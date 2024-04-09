@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/08 19:50:12 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/04/09 06:18:24 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "stdlib.h"
 # include "unistd.h"
 # include "fcntl.h"
+# include "math.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 
@@ -29,7 +30,12 @@
 # define FAIL 1
 # define LEFT 1
 # define RIGHT 0
+# define HORIZONTAL 1
+# define VERTICAL 0
 # define PI 3.14
+# define TILE_SIZE 30
+# define FOV 60
+
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -41,6 +47,12 @@
 
 # ifndef HEIGHT
 #  define HEIGHT 960
+# endif
+
+# ifdef __linux__
+#  define ESC 65307
+# elif __APPLE__
+#  define ESC 53
 # endif
 
 typedef struct s_color
@@ -75,15 +87,20 @@ typedef struct s_cub
 	size_t	height;
 	size_t	x;
 	size_t	y;
+	double	direction;
 	char	**map; // map
 	int		input_fd;
 }	t_cub;
 
 typedef struct s_play
 {
-	size_t	x;
-	size_t	y;
-	double	direction;
+	double	x_in_pixs;
+	double	y_in_pixs;
+	double	angle;
+	float	fov_in_rads;
+	int		rotation;
+	int		left_right;
+	int		up_down;
 }	t_play;
 
 typedef struct s_ray //the ray structure
@@ -95,11 +112,14 @@ typedef struct s_ray //the ray structure
 
 typedef struct s_mlx
 {
-	void  	*wind;
-	void  	*mlx_p;
+	void  	*win_ptr;
+	void  	*mlx_ptr;
+	void	*img_ptr;
+	char	*address;
 	t_cub	*cub;
 	t_ray	*ray;
-} t_mlx;
+	t_play	*player;
+}	t_mlx;
 
 enum e_char
 {
@@ -120,6 +140,7 @@ int		ft_check_inputs(int ac, char **av);
 
 void	ft_debug(void);
 void	ft_debug_int_map(int **tab);
+void	ft_debug_map(char **map);
 void	ft_debug_cub(t_cub *cub);
 
 // Error
@@ -128,23 +149,30 @@ int		ft_print_error(char *message, int error);
 
 // Free
 
-int		ft_exit_program(t_cub *cub);
+int		ft_exit_program(t_mlx *mlx);
 void	ft_free_map_lines(t_cub *cub);
 void	ft_free_ptr(void *ptr);
 void	ft_free_int_tab(t_cub *cub);
 char	**ft_free_tab(char **tab);
-void	ft_free_cub(t_cub *cub);
+int		ft_free_cub(t_cub *cub);
 
 // Game
 
 int		ft_prepare_game(t_cub *cub);
 void	ft_start_game(t_mlx *mlx);
 
+// hooks
+
+int		ft_key_pressed(int key_code, t_mlx *mlx);
+int		ft_loop_hook(t_mlx *mlx);
+int		ft_red_cross(t_mlx *mlx, int code);
+
 // Init
 
 void	ft_init_color(t_color **color);
 void	ft_init_cub(t_cub **cub);
 void	ft_init_file(t_file **file);
+void	ft_init_img(t_mlx *mlx);
 void	ft_init_map(t_map **map);
 void	ft_init_mlx(t_mlx **mlx);
 void	ft_init_play(t_play **player);
@@ -157,7 +185,7 @@ t_cub	*ft_cub_new(char *filename);
 t_file	*ft_file_new(void);
 t_map	*ft_map_new(void *line);
 t_mlx   *ft_mlx_new(t_cub *cub);
-t_play	*ft_play_new(size_t x, size_t y, double direction);
+t_play	*ft_play_new(void);
 t_ray	*ft_ray_new(void);
 
 // Parsing
@@ -170,11 +198,19 @@ int		ft_handle_scene(t_file *file, char *line);
 char	**ft_lst_to_tab(t_map **list);
 int		ft_parsing(t_cub *cub);
 
-//// Raycasting
+// Raycasting
 
-//double	ft_fov(double c_view);
-//void	ft_get_intersections(t_mlx *mlx);
-//void 	ft_raycasting(t_mlx *mlx);
+float	ft_angle(float angle);
+float	ft_get_horizontal(t_mlx *mlx, float angle);
+float	ft_get_vertical(t_mlx *mlx, float angle);
+int		ft_check_intersection(float angle, float *sens, float *step, int direction);
+int		ft_wall(float x, float y, t_mlx *mlx);
+int		ft_circle(float angle, int direction);
+void	ft_raycasting(t_mlx *mlx);
+
+// rendering
+
+void	ft_render_wall(t_mlx *mlx, int ray);
 
 // Utils
 
@@ -187,7 +223,7 @@ char	**ft_split(const char *str, char *c);
 int		ft_has_delimitor(char *str, int c);
 void	ft_map_add_back(t_map **map, t_map *new);
 size_t	ft_map_size(t_map **map);
-size_t	ft_map_height(t_map **map);
+size_t	ft_map_width(t_map **map);
 char	*ft_strcpy(char *src, int n);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char *s1, char *s2);

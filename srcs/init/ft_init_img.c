@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_intersections.c                             :+:      :+:    :+:   */
+/*   ft_init_img.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/29 13:34:42 by cmartino          #+#    #+#             */
-/*   Updated: 2024/04/08 19:47:22 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/04/09 05:32:22 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/09 05:49:36 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-double	ft_get_h_inter(t_mlx *mlx)
+void	ft_init_img(t_mlx *mlx)
 {
-	return (1);
-}
+	int		endian;
+	int		bits_per_pixel;
+	int		size_line;
+	char	*new_address;
 
-double	ft_get_v_inter(t_mlx *mlx)
-{
-	
-	return (1);
-}
-
-void	ft_get_intersections(t_mlx *mlx)
-{
-	double	h_inter;
-	double	v_inter;
-
-	h_inter = ft_get_h_inter(mlx);
-	v_inter = ft_get_v_inter(mlx);
-	if (v_inter < h_inter)
-	{
-		mlx->cub->ray->distance = v_inter;
-		mlx->cub->ray->flag = 1;
-	}
-	else
-	{
-		mlx->cub->ray->distance = h_inter;
-		mlx->cub->ray->flag = 0;
-	}
+	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WIDTH, HEIGHT);
+	//new_address = mlx_get_data_addr(mlx->img_ptr,
+	//	&bits_per_pixel, &size_line, &endian);
+	//mlx->address = new_address;
 }

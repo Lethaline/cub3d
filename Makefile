@@ -6,7 +6,7 @@
 #    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/04/08 19:54:57 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/04/09 05:37:07 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRC = \
 	  main.c \
 	  checks/ft_checks.c \
 	  debug/ft_debug.c \
+	  debug/ft_debug_map.c \
 	  debug/ft_debug_cub.c \
 	  error/ft_print_error.c \
 	  free/ft_exit_program.c \
@@ -56,9 +57,13 @@ SRC = \
 	  free/ft_free_tab.c \
 	  game/ft_prepare_game.c \
 	  game/ft_start_game.c \
+	  hooks/ft_key_pressed.c \
+	  hooks/ft_loop_hook.c \
+	  hooks/ft_red_cross.c \
 	  init/ft_init_color.c \
 	  init/ft_init_cub.c \
 	  init/ft_init_file.c \
+	  init/ft_init_img.c \
 	  init/ft_init_map.c \
 	  init/ft_init_mlx.c \
 	  init/ft_init_play.c \
@@ -76,6 +81,10 @@ SRC = \
 	  parsing/ft_handle_scene.c \
 	  parsing/ft_lst_to_tab.c \
 	  parsing/ft_parsing.c \
+	  raycasting/ft_angle.c \
+	  raycasting/ft_intersection.c \
+	  raycasting/ft_raycasting.c \
+	  rendering/ft_draw.c \
 	  utils/ft_access.c \
 	  utils/ft_atoi.c \
 	  utils/ft_bzero.c \
@@ -83,7 +92,7 @@ SRC = \
 	  utils/ft_has_delimitor.c \
 	  utils/ft_map_add_back.c \
 	  utils/ft_map_size.c \
-	  utils/ft_map_height.c \
+	  utils/ft_map_width.c \
 	  utils/ft_memset.c \
 	  utils/ft_split.c \
 	  utils/ft_strcpy.c \
@@ -125,6 +134,11 @@ TEST = \
 	   duplicateno.cub \
 	   duplicateso.cub \
 	   duplicatewe.cub \
+	   missingea.cub \
+	   missingno.cub \
+	   missingplayer.cub \
+	   missingso.cub \
+	   missingwe.cub \
 	   newlineinmap.cub \
 	   multiplep.cub \
 	   openmap.cub \

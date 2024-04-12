@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fov.c                                           :+:      :+:    :+:   */
+/*   ft_map_height.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/29 14:19:06 by cmartino          #+#    #+#             */
-/*   Updated: 2024/03/29 14:25:17 by cmartino         ###   ########.fr       */
+/*   Created: 2024/03/29 12:15:43 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/09 05:17:47 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-double	ft_fov(double c_view)
+size_t	ft_map_width(t_map **map)
 {
-	double	l_view;
+	size_t	count;
+	size_t	height;
+	t_map	*temp;
 
-	l_view = c_view - (PI / 6);
-	if (l_view < 0)
-		l_view = (11 * PI) / 6;
-	if (l_view > (2 * PI))
-		l_view = PI / 6;
-	return (l_view);
+	count = 0;
+	height = 0;
+	temp = *map;
+	while (temp)
+	{
+		if (height < ft_strlen(temp->line))
+			height = ft_strlen(temp->line);
+		count++;
+		temp = temp->next;
+	}
+	return (height);
 }

@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cub_new.c                                       :+:      :+:    :+:   */
+/*   ft_loop_hook.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 16:12:57 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/08 20:05:02 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/04/09 01:22:58 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/09 06:18:36 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-t_cub	*ft_cub_new(char *filename)
+int	ft_loop_hook(t_mlx *mlx)
 {
-	t_cub	*new;
-
-	new = (t_cub *)malloc(sizeof(t_cub));
-	if (!new)
-		return (NULL);
-	ft_init_cub(&new);
-	new->input_fd = open(filename, O_RDONLY);
-	if (new->input_fd == -1)
-	{
-		ft_free_ptr(new);
-		return (NULL);
-	}
-	return (new);
+	if (mlx->img_ptr != NULL)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
+	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WIDTH, HEIGHT);
+	ft_raycasting(mlx);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 }

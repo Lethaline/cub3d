@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cub_new.c                                       :+:      :+:    :+:   */
+/*   ft_init_ray.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 16:12:57 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/08 20:05:02 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/04/08 19:10:09 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/08 19:11:45 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-t_cub	*ft_cub_new(char *filename)
+void	ft_init_ray(t_ray **ray)
 {
-	t_cub	*new;
-
-	new = (t_cub *)malloc(sizeof(t_cub));
-	if (!new)
-		return (NULL);
-	ft_init_cub(&new);
-	new->input_fd = open(filename, O_RDONLY);
-	if (new->input_fd == -1)
-	{
-		ft_free_ptr(new);
-		return (NULL);
-	}
-	return (new);
+	(*ray)->angle = -1;
+	(*ray)->distance = -1;
+	(*ray)->flag = -1;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 10:00:13 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/29 11:25:56 by cmartino         ###   ########.fr       */
+/*   Updated: 2024/04/09 02:58:51 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ t_mlx   *ft_mlx_new(t_cub *cub)
     if (!new)
         return (NULL);
     ft_init_mlx(&new);
-    new->mlx_p = mlx_init();
-    new->wind = mlx_new_window(new->mlx_p, WIDTH, HEIGHT, "Cub3d");
     new->cub = cub;
+    new->player->x_in_pixs = cub->x * TILE_SIZE + TILE_SIZE / 2;
+    new->player->y_in_pixs = cub->y * TILE_SIZE + TILE_SIZE / 2;
+    new->player->angle = cub->direction;
+    new->player->fov_in_rads = FOV * PI / 180;
     return (new);
 }

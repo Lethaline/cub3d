@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cub_new.c                                       :+:      :+:    :+:   */
+/*   ft_ray_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 16:12:57 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/08 20:05:02 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/04/08 19:11:51 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/08 19:12:49 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-t_cub	*ft_cub_new(char *filename)
+t_ray	*ft_ray_new(void)
 {
-	t_cub	*new;
+	t_ray	*new;
 
-	new = (t_cub *)malloc(sizeof(t_cub));
+	new = (t_ray *)malloc(sizeof(t_ray));
 	if (!new)
 		return (NULL);
-	ft_init_cub(&new);
-	new->input_fd = open(filename, O_RDONLY);
-	if (new->input_fd == -1)
-	{
-		ft_free_ptr(new);
-		return (NULL);
-	}
+	ft_init_ray(&new);
 	return (new);
 }

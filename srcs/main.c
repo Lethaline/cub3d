@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:03:12 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/29 13:19:06 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/04/09 05:05:22 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int ac, char **av)
 {
 	t_mlx	*mlx;
 	t_cub	*cub;
-	int		fd;
 
 	if (ft_check_inputs(ac, av) == FAIL)
 		return (FAIL);
@@ -24,15 +23,9 @@ int	main(int ac, char **av)
 	if (ft_parsing(cub) == FAIL)
 		return (FAIL);
 	if (ft_prepare_game(cub) == FAIL)
-		return (ft_exit_program(cub));
-
-	printf("%zu  - %zu\n", cub->player->x, cub->player->y);
-	printf("width: %zu | height: %zu\n", cub->width, cub->height);
-	printf("Direction : %f\n", cub->player->direction);
-
-
+		return (ft_free_cub(cub));
 	mlx = ft_mlx_new(cub);
 	ft_start_game(mlx);
-	ft_exit_program(cub);
+	ft_exit_program(mlx);
 	return (SUCCESS);
 }

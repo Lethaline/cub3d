@@ -1,28 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_start_game.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/09 00:46:22 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/09 06:17:20 by lolemmen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
-int	ft_test(t_mlx *mlx, int code)
+void	ft_start_game(t_mlx *mlx)
 {
-	printf("%d\n", code);
-	mlx_destroy_window(mlx->mlx_p, mlx->wind);
-	ft_exit_program(mlx->cub);
-	exit(SUCCESS);
-}
-
-int	ft_key_pressed(int key_code, t_mlx *mlx)
-{
-	if (key_code == 53) //ESCP KEY
-	{
-		// mlx_destroy_image(mlx->mlx_p, mlx->img); //-> pas encore de img
-		mlx_destroy_window(mlx->mlx_p, mlx->wind);
-		ft_exit_program(mlx->cub);
-		exit(SUCCESS);
-	}
-	return (0);
-}
-
-void	ft_start_game(t_mlx *mlx){
-	mlx_key_hook(mlx->wind, ft_key_pressed, mlx);
-	mlx_hook(mlx->wind, 17, 0, ft_test, mlx);
-	ft_raycasting(mlx);
-	mlx_loop(mlx->mlx_p);
+	mlx->mlx_ptr = mlx_init();
+	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIDTH, HEIGHT, "Cub3d");
+	mlx_key_hook(mlx->win_ptr, ft_key_pressed, mlx);
+	mlx_loop_hook (mlx->mlx_ptr, ft_loop_hook, mlx);
+	mlx_hook(mlx->win_ptr, 17, 0, ft_red_cross, mlx);
+	mlx_loop(mlx->mlx_ptr);
 }

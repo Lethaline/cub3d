@@ -3,24 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 23:33:10 by lethaline         #+#    #+#             */
-/*   Updated: 2024/03/17 02:30:39 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/29 13:16:35 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-size_t	ft_map_size(t_map *map)
+size_t	ft_map_size(t_map **map)
 {
 	size_t	count;
+	t_map	*temp;
 
 	count = 0;
-	while (map)
+	temp = *map;
+	while (temp)
 	{
 		count++;
-		map = map->next;
+		temp = temp->next;
 	}
 	return (count);
 }

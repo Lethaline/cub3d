@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_map.c                                    :+:      :+:    :+:   */
+/*   ft_mlx_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 17:54:24 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/29 12:14:41 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/03/27 10:00:13 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/09 02:58:51 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_handle_map(t_cub *cub, char *line)
+t_mlx   *ft_mlx_new(t_cub *cub)
 {
-	size_t	count;
-	if (ft_check_map(line) == FALSE)
-		return (ft_print_error("Error\nInvalid character in map\n", FAIL));
-	ft_map_add_back(&cub->map_lines, ft_map_new(ft_strdup(line)));
-	return (SUCCESS);
+    t_mlx   *new;
+
+    new = (t_mlx *)malloc(sizeof(t_mlx));
+    if (!new)
+        return (NULL);
+    ft_init_mlx(&new);
+    new->cub = cub;
+    new->player->x_in_pixs = cub->x * TILE_SIZE + TILE_SIZE / 2;
+    new->player->y_in_pixs = cub->y * TILE_SIZE + TILE_SIZE / 2;
+    new->player->angle = cub->direction;
+    new->player->fov_in_rads = FOV * PI / 180;
+    return (new);
 }

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_map.c                                    :+:      :+:    :+:   */
+/*   ft_init_img.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 17:54:24 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/03/29 12:14:41 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/04/09 05:32:22 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/09 05:49:36 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_handle_map(t_cub *cub, char *line)
+void	ft_init_img(t_mlx *mlx)
 {
-	size_t	count;
-	if (ft_check_map(line) == FALSE)
-		return (ft_print_error("Error\nInvalid character in map\n", FAIL));
-	ft_map_add_back(&cub->map_lines, ft_map_new(ft_strdup(line)));
-	return (SUCCESS);
+	int		endian;
+	int		bits_per_pixel;
+	int		size_line;
+	char	*new_address;
+
+	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WIDTH, HEIGHT);
+	//new_address = mlx_get_data_addr(mlx->img_ptr,
+	//	&bits_per_pixel, &size_line, &endian);
+	//mlx->address = new_address;
 }

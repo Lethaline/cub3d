@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_cub.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:47 by lethaline         #+#    #+#             */
-/*   Updated: 2024/03/17 02:26:48 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/04/08 20:34:16 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ void	ft_free_file(t_file **file)
 	}
 }
 
-void	ft_free_cub(t_cub *cub)
+int	ft_free_cub(t_cub *cub)
 {
 	if (cub)
 	{
 		ft_free_file(&cub->file);
 		ft_free_map_lines(cub);
-		ft_free_ptr(cub->player);
 		ft_free_tab(cub->map);
 		if (cub->input_fd != -1)
 			close(cub->input_fd);
 		ft_free_ptr(cub);
 	}
+	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_to_tab.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lethaline <lethaline@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 23:36:22 by lethaline         #+#    #+#             */
-/*   Updated: 2024/03/17 02:38:04 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/03/29 13:17:47 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	**ft_lst_to_tab(t_map **list)
 	char	**map;
 	t_map	*first;
 
-	len = ft_map_size(*list);
+	len = ft_map_size(list);
 	first = *list;
 	map = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!map)

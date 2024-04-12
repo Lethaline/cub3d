@@ -19,7 +19,7 @@ NAME = cub3d
 
 RM = rm -rf
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -O3 -ffast-math
 
 # Directories
 

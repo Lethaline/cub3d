@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/09 06:18:24 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/04/24 02:50:55 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ typedef struct s_mlx
 	void	*img_ptr;
 	char	*address;
 	t_cub	*cub;
-	t_ray	*ray;
-	t_play	*player;
+//	t_ray	*ray;
+//	t_play	*player;
 }	t_mlx;
 
 enum e_char
@@ -198,20 +198,6 @@ int		ft_handle_scene(t_file *file, char *line);
 char	**ft_lst_to_tab(t_map **list);
 int		ft_parsing(t_cub *cub);
 
-// Raycasting
-
-float	ft_angle(float angle);
-float	ft_get_horizontal(t_mlx *mlx, float angle);
-float	ft_get_vertical(t_mlx *mlx, float angle);
-int		ft_check_intersection(float angle, float *sens, float *step, int direction);
-int		ft_wall(float x, float y, t_mlx *mlx);
-int		ft_circle(float angle, int direction);
-void	ft_raycasting(t_mlx *mlx);
-
-// rendering
-
-void	ft_render_wall(t_mlx *mlx, int ray);
-
 // Utils
 
 int		ft_access(char *filename);
@@ -219,6 +205,7 @@ int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t size);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *dest, int c, size_t len);
+void	ft_put_pixel_on_img(t_mlx *mlx, int x, int y, int color);
 char	**ft_split(const char *str, char *c);
 int		ft_has_delimitor(char *str, int c);
 void	ft_map_add_back(t_map **map, t_map *new);

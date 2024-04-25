@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_angle.c                                         :+:      :+:    :+:   */
+/*   ft_put_pixel_on_img.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 03:35:55 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/09 03:37:22 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/04/22 16:06:47 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/04/24 02:52:58 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-float	ft_angle(float angle)
+void	ft_put_pixel_on_img(t_mlx *mlx, int x, int y, int color)
 {
-	if (angle < 0)
-		angle += 2 * PI;
-	else if (angle > 2 * PI)
-		angle -= 2 * PI;
-	return (angle);
+	int	bits;
+	int	length;
+	int	endian;
+	char	*dst;
+
+	mlx->address = mlx_get_data_addr(mlx->img_ptr, &bits, &length, &endian);
+	dst = mlx->address + (y * length + x * (bits / 8));
+	*(unsigned int *)dst = color;
 }

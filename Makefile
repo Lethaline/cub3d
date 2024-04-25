@@ -6,7 +6,7 @@
 #    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/04/09 05:37:07 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/04/24 02:51:08 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,10 +81,6 @@ SRC = \
 	  parsing/ft_handle_scene.c \
 	  parsing/ft_lst_to_tab.c \
 	  parsing/ft_parsing.c \
-	  raycasting/ft_angle.c \
-	  raycasting/ft_intersection.c \
-	  raycasting/ft_raycasting.c \
-	  rendering/ft_draw.c \
 	  utils/ft_access.c \
 	  utils/ft_atoi.c \
 	  utils/ft_bzero.c \
@@ -94,6 +90,7 @@ SRC = \
 	  utils/ft_map_size.c \
 	  utils/ft_map_width.c \
 	  utils/ft_memset.c \
+	  utils/ft_put_pixel_on_img.c \
 	  utils/ft_split.c \
 	  utils/ft_strcpy.c \
 	  utils/ft_strdup.c \

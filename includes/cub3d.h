@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/24 02:50:55 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:00:04 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,27 +88,9 @@ typedef struct s_cub
 	size_t	x;
 	size_t	y;
 	double	direction;
-	char	**map; // map
+	char	**map;
 	int		input_fd;
 }	t_cub;
-
-typedef struct s_play
-{
-	double	x_in_pixs;
-	double	y_in_pixs;
-	double	angle;
-	float	fov_in_rads;
-	int		rotation;
-	int		left_right;
-	int		up_down;
-}	t_play;
-
-typedef struct s_ray //the ray structure
-{
-	double	angle; // ray angle
-	double	distance; // distance to the wall
-	int		flag;  // flag for the wall
-}	t_ray;
 
 typedef struct s_mlx
 {
@@ -117,8 +99,6 @@ typedef struct s_mlx
 	void	*img_ptr;
 	char	*address;
 	t_cub	*cub;
-//	t_ray	*ray;
-//	t_play	*player;
 }	t_mlx;
 
 enum e_char
@@ -175,8 +155,6 @@ void	ft_init_file(t_file **file);
 void	ft_init_img(t_mlx *mlx);
 void	ft_init_map(t_map **map);
 void	ft_init_mlx(t_mlx **mlx);
-void	ft_init_play(t_play **player);
-void	ft_init_ray(t_ray **ray);
 
 // New
 
@@ -185,8 +163,6 @@ t_cub	*ft_cub_new(char *filename);
 t_file	*ft_file_new(void);
 t_map	*ft_map_new(void *line);
 t_mlx   *ft_mlx_new(t_cub *cub);
-t_play	*ft_play_new(void);
-t_ray	*ft_ray_new(void);
 
 // Parsing
 

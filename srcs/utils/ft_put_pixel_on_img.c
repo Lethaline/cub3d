@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:06:47 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/24 02:52:58 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:07:31 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_put_pixel_on_img(t_mlx *mlx, int x, int y, int color)
 {
-	int	bits;
-	int	length;
-	int	endian;
+	int		bits;
+	int		length;
+	int		endian;
 	char	*dst;
 
 	mlx->address = mlx_get_data_addr(mlx->img_ptr, &bits, &length, &endian);

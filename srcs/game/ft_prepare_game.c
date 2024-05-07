@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 01:10:08 by lethaline         #+#    #+#             */
-/*   Updated: 2024/04/09 05:16:51 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:08:41 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ static int	ft_check_player(t_cub *cub, size_t x, size_t y)
 	cub->x = x;
 	cub->y = y;
 	if (cub->map[x][y] == NORTH)
-		cub->direction = 3 * (PI/2);
+		cub->direction = 3 * (PI / 2);
 	if (cub->map[x][y] == SOUTH)
-		cub->direction = PI/2;
+		cub->direction = PI / 2;
 	if (cub->map[x][y] == WEST)
 		cub->direction = PI;
 	if (cub->map[x][y] == EAST)

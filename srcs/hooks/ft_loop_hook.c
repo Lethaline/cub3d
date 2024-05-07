@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 01:22:58 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/24 02:52:52 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:09:47 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 int	ft_loop_hook(t_mlx *mlx)
 {
 	int	x;
-	int y;
+	int	y;
 
-	
 	if (mlx->img_ptr != NULL)
 		mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WIDTH, HEIGHT);

@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 05:32:22 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/09 05:49:36 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:12:07 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_init_img(t_mlx *mlx)
 	char	*new_address;
 
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WIDTH, HEIGHT);
-	//new_address = mlx_get_data_addr(mlx->img_ptr,
-	//	&bits_per_pixel, &size_line, &endian);
-	//mlx->address = new_address;
+	new_address = mlx_get_data_addr(mlx->img_ptr,
+			&bits_per_pixel, &size_line, &endian);
+	mlx->address = new_address;
 }

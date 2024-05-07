@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 23:16:28 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/04/09 05:18:45 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:12:50 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_parsing(t_cub *cub)
 	if (!cub->map)
 	{
 		ft_print_error("Error\nDuring map creation\n", FAIL);
-		return(ft_free_cub(cub));
+		return (ft_free_cub(cub));
 	}
 	return (SUCCESS);
 }

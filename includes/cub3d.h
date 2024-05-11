@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/05/07 02:00:04 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/05/11 16:45:23 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,7 @@ int		ft_access(char *filename);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t size);
 void	*ft_calloc(size_t count, size_t size);
+int		ft_check_xpm(char *sprite);
 void	*ft_memset(void *dest, int c, size_t len);
 void	ft_put_pixel_on_img(t_mlx *mlx, int x, int y, int color);
 char	**ft_split(const char *str, char *c);

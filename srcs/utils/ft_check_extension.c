@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_scene.c                                   :+:      :+:    :+:   */
+/*   ft_check_extension.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 14:20:25 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/05/11 16:44:38 by lolemmen         ###   ########.fr       */
+/*   Created: 2024/05/11 16:44:51 by lolemmen          #+#    #+#             */
+/*   Updated: 2024/05/11 16:58:37 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_check_color(t_color *color)
+int	ft_check_xpm(char *sprite)
 {
-	if (color->red == -1 || color->green == -1 || color->blue == -1)
-		return (FALSE);
-	return (TRUE);
-}
+	size_t	count;
 
-int	ft_check_scene(t_file *file)
-{
-	if (file->north == NULL || file->south == NULL || file->east == NULL
-		|| file->west == NULL)
-		return (FALSE);
-	if (!ft_check_color(file->floor) || !ft_check_color(file->cell))
-		return (FALSE);
-	return (TRUE);
+	if (!sprite || !sprite[0])
+		return (FAIL);
+	count = ft_strlen(sprite);
+	while (count > 0)
+	{
+		if (sprite[count] == '.')
+			break ;
+		count--;
+	}
+	if (sprite[count] == '\0')
+		return (FAIL);
+	if (ft_strncmp(&sprite[count], ".xpm", 4) == FAIL)
+		return (FAIL);
+	return (SUCCESS);
 }

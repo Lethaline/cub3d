@@ -1,9 +1,9 @@
-EA ./filetest/correct.cub
-EA ./filetest/correct.cub
+EA ./assets/test.xpm
+EA ./assets/test.xpm
 
-NO ./filetest/correct.cub
-SO ./filetest/correct.cub
-WE ./filetest/correct.cub
+NO ./assets/test.xpm
+SO ./assets/test.xpm
+WE ./assets/test.xpm
 
 F 220,100,0
 C 225,30,0

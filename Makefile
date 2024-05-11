@@ -6,7 +6,7 @@
 #    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/05/07 02:05:57 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/05/11 17:09:47 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ SRC = \
 	  utils/ft_atoi.c \
 	  utils/ft_bzero.c \
 	  utils/ft_calloc.c \
+	  utils/ft_check_extension.c \
 	  utils/ft_has_delimitor.c \
 	  utils/ft_map_add_back.c \
 	  utils/ft_map_size.c \
@@ -121,6 +122,8 @@ TEST = \
 	   badname \
 	   badname2.cuby \
 	   badname3.cu \
+	   badspriteext.cub \
+	   badspriteext2.cub \
 	   duplicatec.cub \
 	   duplicateea.cub \
 	   duplicatef.cub \

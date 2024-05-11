@@ -1,4 +1,5 @@
-NO ./assets/test.xpm
+NO ./assets/test.xpme
+SO ./assets/test.xpm
 WE ./assets/test.xpm
 EA ./assets/test.xpm
 

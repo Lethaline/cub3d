@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 23:16:28 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/05/11 17:00:44 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:14:37 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ int	ft_parsing(t_cub *cub)
 			return (ft_handle_error(cub, line, FAIL));
 		ft_free_ptr(line);
 	}
-	if (ft_check_xpm(cub->file->north) || ft_check_xpm(cub->file->south) || ft_check_xpm(cub->file->east) || ft_check_xpm(cub->file->west))
+	if (ft_check_ext(cub->file->north, ".xpm")
+		|| ft_check_ext(cub->file->south, ".xpm")
+		|| ft_check_ext(cub->file->east, ".xpm")
+		|| ft_check_ext(cub->file->west, ".xpm"))
 		return (ft_print_error("Error\nBad sprite extension\n", FAIL));
 	cub->width = ft_map_width(&cub->map_lines);
 	cub->height = ft_map_size(&cub->map_lines);

@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:49:06 by lolemmen          #+#    #+#             */
-/*   Updated: 2024/05/11 16:45:23 by lolemmen         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:16:54 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 # define PI 3.14
 # define TILE_SIZE 30
 # define FOV 60
-
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -94,8 +93,8 @@ typedef struct s_cub
 
 typedef struct s_mlx
 {
-	void  	*win_ptr;
-	void  	*mlx_ptr;
+	void	*win_ptr;
+	void	*mlx_ptr;
 	void	*img_ptr;
 	char	*address;
 	t_cub	*cub;
@@ -162,7 +161,7 @@ t_color	*ft_color_new(void);
 t_cub	*ft_cub_new(char *filename);
 t_file	*ft_file_new(void);
 t_map	*ft_map_new(void *line);
-t_mlx   *ft_mlx_new(t_cub *cub);
+t_mlx	*ft_mlx_new(t_cub *cub);
 
 // Parsing
 
@@ -180,7 +179,7 @@ int		ft_access(char *filename);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t size);
 void	*ft_calloc(size_t count, size_t size);
-int		ft_check_xpm(char *sprite);
+int		ft_check_ext(char *path, char *extension);
 void	*ft_memset(void *dest, int c, size_t len);
 void	ft_put_pixel_on_img(t_mlx *mlx, int x, int y, int color);
 char	**ft_split(const char *str, char *c);

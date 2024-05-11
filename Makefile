@@ -6,7 +6,7 @@
 #    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 23:14:32 by lolemmen          #+#    #+#              #
-#    Updated: 2024/05/11 17:09:47 by lolemmen         ###   ########.fr        #
+#    Updated: 2024/05/11 17:15:08 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ SRC = \
 	  utils/ft_atoi.c \
 	  utils/ft_bzero.c \
 	  utils/ft_calloc.c \
-	  utils/ft_check_extension.c \
+	  utils/ft_check_ext.c \
 	  utils/ft_has_delimitor.c \
 	  utils/ft_map_add_back.c \
 	  utils/ft_map_size.c \
